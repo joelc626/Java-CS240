@@ -1,1 +1,1 @@
-# Java-CS240
+# Java (CS240)
