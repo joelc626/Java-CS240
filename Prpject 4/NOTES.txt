@@ -1,0 +1,132 @@
+EX		Postfix		Prefix
+-----------------------------------------
+a*b+c-d		ab*c+d-		-+*abcd
+a*((b+c)-d)	abc+d-*		*a-+bcd		
+a/(b+c/d)+e	abcd/+/e+	+/a+b/cde
+
+
+******************************************
+Another example in detail:
+
+Conversion of Infix to Prefix:
+
+(a+b)*(c-d)
+
+Stack Operand: a
+
+Stack Operator: ( +
+
+----------------------
+
+
+Stack Operand: a b
+
+Stack Operator: ( + )
+
+----------------------
+
+Stack Operand: 
+
+Stack Operator: (
+
+OP	R	L
++	a	b
+
++ab
+----------------------
+
+Stack Operand: +ab
+
+Stack Operator: (
+
+----------------------
+
+Stack Operand: +ab
+
+Stack Operator: 
+
+*discard "("
+
+----------------------
+
+Stack Operand: +ab c d
+
+Stack Operator: * ( - )
+
+----------------------
+
+Stack Operand: +ab
+
+Stack Operator: *
+
+OP	R	L
+-	c	d
+
+-cd
+
+----------------------
+
+Stack Operand: +ab -cd
+
+Stack Operator: *
+
+----------------------
+
+Stack Operand: 
+
+Stack Operator: 
+
+OP	R	L
+*	+ab	-cd
+
+----------------------
+
+Stack Operand: *+ab-cd
+
+Stack Operator: 
+
+******************************************
+Another example in detail:
+
+Conversion of Infix to Prefix:
+(a+b*c)/d
+
+Stack Operand: 
+
+Stack Operator: 
+
+----------------------
+
+Stack Operand: a b c
+
+Stack Operator: ( + *
+
+----------------------
+
+Stack Operand: a *bc
+
+Stack Operator: ( +
+
+----------------------
+
+Stack Operand: a *bc
+
+Stack Operator: ( + )
+
+----------------------
+
+Stack Operand: +a*bc
+
+Stack Operator: 
+
+----------------------
+
+Stack Operand: +a*bc d
+
+Stack Operator: /
+
+----------------------
+
+Stack Operand: /+a*bcd
+
+Stack Operator: 
